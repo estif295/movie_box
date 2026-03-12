@@ -1,0 +1,148 @@
+export const movies = [
+  {
+    id: 1,
+    title: "Interstellar",
+    year: 2014,
+    rating: "PG-13",
+    duration: "2h 49min",
+    genre: ["Sci-Fi", "Adventure", "Drama"],
+    description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500",
+    backdrop: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200",
+    trailer: "https://www.youtube.com/watch?v=zSWdZVtXT7E",
+    cast: ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
+    director: "Christopher Nolan"
+  },
+  {
+    id: 2,
+    title: "Inception",
+    year: 2010,
+    rating: "PG-13",
+    duration: "2h 28min",
+    genre: ["Action", "Sci-Fi", "Thriller"],
+    description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+    image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500",
+    backdrop: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200",
+    cast: ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"],
+    director: "Christopher Nolan"
+  },
+  {
+    id: 3,
+    title: "The Dark Knight",
+    year: 2008,
+    rating: "PG-13",
+    duration: "2h 32min",
+    genre: ["Action", "Crime", "Drama"],
+    description: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    image: "https://images.unsplash.com/photo-1531259683007-016a7b628fc3?w=500",
+    backdrop: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200",
+    cast: ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
+    director: "Christopher Nolan"
+  },
+  {
+    id: 4,
+    title: "Pulp Fiction",
+    year: 1994,
+    rating: "R",
+    duration: "2h 34min",
+    genre: ["Crime", "Drama"],
+    description: "The lives of two mob hitmen, a boxer, a gangster and his wife intertwine in four tales of violence and redemption.",
+    image: "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=500",
+    backdrop: "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=1200",
+    cast: ["John Travolta", "Uma Thurman", "Samuel L. Jackson"],
+    director: "Quentin Tarantino"
+  },
+  {
+    id: 5,
+    title: "The Matrix",
+    year: 1999,
+    rating: "R",
+    duration: "2h 16min",
+    genre: ["Action", "Sci-Fi"],
+    description: "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+    image: "https://images.unsplash.com/photo-1524712245356-2c4e5e7121c0?w=500",
+    backdrop: "https://images.unsplash.com/photo-1524712245356-2c4e5e7121c0?w=1200",
+    cast: ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
+    director: "Lana Wachowski, Lilly Wachowski"
+  },
+  {
+    id: 6,
+    title: "Goodfellas",
+    year: 1990,
+    rating: "R",
+    duration: "2h 25min",
+    genre: ["Biography", "Crime", "Drama"],
+    description: "The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen and his mob partners Jimmy Conway and Tommy DeVito.",
+    image: "https://images.unsplash.com/photo-1571847140471-1e7766e8867b?w=500",
+    backdrop: "https://images.unsplash.com/photo-1571847140471-1e7766e8867b?w=1200",
+    cast: ["Robert De Niro", "Ray Liotta", "Joe Pesci"],
+    director: "Martin Scorsese"
+  },
+  {
+    id: 7,
+    title: "The Shawshank Redemption",
+    year: 1994,
+    rating: "R",
+    duration: "2h 22min",
+    genre: ["Drama"],
+    description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+    image: "https://images.unsplash.com/photo-1518977956818-0c0cb069b2f8?w=500",
+    backdrop: "https://images.unsplash.com/photo-1518977956818-0c0cb069b2f8?w=1200",
+    cast: ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
+    director: "Frank Darabont"
+  },
+  {
+    id: 8,
+    title: "The Godfather",
+    year: 1972,
+    rating: "R",
+    duration: "2h 55min",
+    genre: ["Crime", "Drama"],
+    description: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+    image: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=500",
+    backdrop: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=1200",
+    cast: ["Marlon Brando", "Al Pacino", "James Caan"],
+    director: "Francis Ford Coppola"
+  },
+  {
+    id: 9,
+    title: "The Lord of the Rings: The Fellowship of the Ring",
+    year: 2001,
+    rating: "PG-13",
+    duration: "2h 58min",
+    genre: ["Adventure", "Drama", "Fantasy"],
+    description: "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth.",
+    image: "https://images.unsplash.com/photo-1507120366493-3c5ea1ffb9b0?w=500",
+    backdrop: "https://images.unsplash.com/photo-1507120366493-3c5ea1ffb9b0?w=1200",
+    cast: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+    director: "Peter Jackson"
+  },
+  {
+    id: 10,
+    title: "Forrest Gump",
+    year: 1994,
+    rating: "PG-13",
+    duration: "2h 22min",
+    genre: ["Drama", "Romance"],
+    description: "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man.",
+    image: "https://images.unsplash.com/photo-1470016341543-03dcb11f3a39?w=500",
+    backdrop: "https://images.unsplash.com/photo-1470016341543-03dcb11f3a39?w=1200",
+    cast: ["Tom Hanks", "Robin Wright", "Gary Sinise"],
+    director: "Robert Zemeckis"
+  }]
+;
+
+export const categories = [
+  { id: 1, name: "Action", icon: "🔥" },
+  { id: 2, name: "Comedy", icon: "😂" },
+  { id: 3, name: "Drama", icon: "🎭" },
+  { id: 4, name: "Sci-Fi", icon: "🚀" },
+  { id: 5, name: "Horror", icon: "👻" },
+  { id: 6, name: "Romance", icon: "❤️" },
+  { id: 7, name: "Documentary", icon: "📽️" },
+  { id: 8, name: "Thriller", icon: "🔪" }
+];
+
+export const trendingMovies = movies.slice(0, 8);
+export const recommendedMovies = movies.slice(2, 10);
+export const popularMovies = [...movies].reverse();
