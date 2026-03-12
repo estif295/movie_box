@@ -39,7 +39,7 @@ const Navbar = () => {
               MovieBox
             </Link>
             
-            <div className="hidden md:flex space-x-6">
+            <div className="flex space-x-6">
               <Link to="/" className="hover:text-gray-300 transition-colors">Home</Link>
               <Link to="/movies" className="hover:text-gray-300 transition-colors">Movies</Link>
               <Link to="/categories" className="hover:text-gray-300 transition-colors">Categories</Link>

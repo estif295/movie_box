@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaPlay, FaDownload, FaStar } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import MovieModal from './MovieModal';
+// no modal – navigate to detail page instead
 
 const MovieCard = ({ movie }) => {
-  const [showModal, setShowModal] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <>
+    <Link to={`/movie/${movie.id}`}> 
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -18,7 +17,6 @@ const MovieCard = ({ movie }) => {
         className="relative group cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onClick={() => setShowModal(true)}
       >
         <div className="relative overflow-hidden rounded-lg">
           <img
@@ -63,11 +61,7 @@ const MovieCard = ({ movie }) => {
           <p className="text-sm text-gray-400">{movie.genre.join(' • ')}</p>
         </div>
       </motion.div>
-
-      {showModal && (
-        <MovieModal movie={movie} onClose={() => setShowModal(false)} />
-      )}
-    </>
+    </Link>
   );
 };
 

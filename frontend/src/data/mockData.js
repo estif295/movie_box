@@ -129,7 +129,33 @@ export const movies = [
     backdrop: "https://images.unsplash.com/photo-1470016341543-03dcb11f3a39?w=1200",
     cast: ["Tom Hanks", "Robin Wright", "Gary Sinise"],
     director: "Robert Zemeckis"
-  }]
+  },
+  {
+    id: 11,
+    title: "Avengers: Infinity War",
+    year: 2018,
+    rating: "PG-13",
+    duration: "2h 29min",
+    genre: ["Action", "Adventure", "Sci-Fi"],
+    description: "The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.",
+    image: "https://images.unsplash.com/photo-1511615611875-2ae202ca0e0a?w=500",
+    backdrop: "https://images.unsplash.com/photo-1511615611875-2ae202ca0e0a?w=1200",
+    cast: ["Robert Downey Jr.", "Chris Hemsworth", "Mark Ruffalo"],
+    director: "Anthony Russo, Joe Russo"
+  },
+  {
+    id: 12,
+    title: "Infinity",
+    year: 2026,
+    rating: "PG",
+    duration: "1h 40min",
+    genre: ["Drama", "Sci-Fi"],
+    description: "A young mathematician discovers a mysterious pattern in the universe that leads to unexpected consequences.",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500",
+    backdrop: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200",
+    cast: ["Jane Doe", "John Smith"],
+    director: "Alex Example"
+  }];
 ;
 
 export const categories = [
@@ -143,6 +169,6 @@ export const categories = [
   { id: 8, name: "Thriller", icon: "🔪" }
 ];
 
-export const trendingMovies = movies.slice(0, 8);
-export const recommendedMovies = movies.slice(2, 10);
+export const trendingMovies = movies.slice(0, 11);
+export const recommendedMovies = movies.slice(2, 12);
 export const popularMovies = [...movies].reverse();

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import MovieCard from '../components/MovieCard';
 import { movies } from '../data/mockData';
 
@@ -6,10 +6,54 @@ const Movies = () => {
   const [filter, setFilter] = useState('all');
   const [sort, setSort] = useState('popularity');
 
-  const filteredMovies = movies.filter(movie => {
-    if (filter === 'all') return true;
-    return movie.genre.some(g => g.toLowerCase().includes(filter.toLowerCase()));
-  });
+  // apply simple genre filtering (memoized)
+  const filteredMovies = useMemo(() => {
+    return movies.filter(movie => {
+      if (filter === 'all') return true;
+      return movie.genre.some(g => g.toLowerCase().includes(filter.toLowerCase()));
+    });
+  }, [filter]);
+
+  // sort filtered list based on sort state (memoized)
+  const sortedMovies = useMemo(() => {
+    const arr = [...filteredMovies];
+    switch (sort) {
+      case 'year':
+        return arr.sort((a, b) => b.year - a.year);
+      case 'rating':
+        // no actual rating field in mock data, assume 8.5 constant so keep order
+        return arr;
+      case 'popularity':
+      default:
+        return arr;
+    }
+  }, [filteredMovies, sort]);
+
+  // infinite scroll logic
+  const pageSize = 8;
+  const [page, setPage] = useState(1);
+
+  // reset page when filter or sort change
+  useEffect(() => {
+    setPage(1);
+  }, [filter, sort]);
+
+  // visible slice based on page
+  const visibleMovies = sortedMovies.slice(0, page * pageSize);
+
+  // scroll handler to load more
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 200 &&
+        visibleMovies.length < sortedMovies.length
+      ) {
+        setPage((p) => p + 1);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [visibleMovies.length, sortedMovies.length]);
 
   return (
     <div className="min-h-screen bg-moviebox-dark pt-20">
@@ -41,11 +85,11 @@ const Movies = () => {
             </select>
           </div>
           
-          <p className="text-gray-400">{filteredMovies.length} movies</p>
+          <p className="text-gray-400">{visibleMovies.length} / {sortedMovies.length} movies</p>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {filteredMovies.map((movie) => (
+          {visibleMovies.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}
         </div>
