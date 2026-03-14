@@ -6,7 +6,7 @@ const CategorySection = ({ categories }) => {
   return (
     <div className="mb-8">
       <h2 className="text-2xl font-bold mb-4">Browse Categories</h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {categories.map((category, index) => (
           <motion.div
             key={category.id}

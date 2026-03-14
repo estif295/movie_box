@@ -155,6 +155,45 @@ export const movies = [
     backdrop: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200",
     cast: ["Jane Doe", "John Smith"],
     director: "Alex Example"
+  },
+  {
+    id: 13,
+    title: "Jurassic Park",
+    year: 1993,
+    rating: "PG-13",
+    duration: "2h 7min",
+    genre: ["Adventure", "Sci-Fi"],
+    description: "During a preview tour, a theme park suffers a major power breakdown that allows its cloned dinosaur exhibits to run amok.",
+    image: "https://images.unsplash.com/photo-1508580889220-ebd1c552cd29?w=500",
+    backdrop: "https://images.unsplash.com/photo-1508580889220-ebd1c552cd29?w=1200",
+    cast: ["Sam Neill", "Laura Dern", "Jeff Goldblum"],
+    director: "Steven Spielberg"
+  },
+  {
+    id: 14,
+    title: "The Lion King",
+    year: 1994,
+    rating: "G",
+    duration: "1h 29min",
+    genre: ["Animation", "Adventure", "Drama"],
+    description: "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.",
+    image: "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?w=500",
+    backdrop: "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?w=1200",
+    cast: ["Matthew Broderick", "Jeremy Irons", "James Earl Jones"],
+    director: "Roger Allers, Rob Minkoff"
+  },
+  {
+    id: 15,
+    title: "The Avengers",
+    year: 2012,
+    rating: "PG-13",
+    duration: "2h 23min",
+    genre: ["Action", "Adventure", "Sci-Fi"],
+    description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki.",
+    image: "https://images.unsplash.com/photo-1420578471567-47e53cba962e?w=500",
+    backdrop: "https://images.unsplash.com/photo-1420578471567-47e53cba962e?w=1200",
+    cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+    director: "Joss Whedon"
   }];
 ;
 
@@ -166,9 +205,13 @@ export const categories = [
   { id: 5, name: "Horror", icon: "👻" },
   { id: 6, name: "Romance", icon: "❤️" },
   { id: 7, name: "Documentary", icon: "📽️" },
-  { id: 8, name: "Thriller", icon: "🔪" }
+  { id: 8, name: "Thriller", icon: "🔪" },
+  { id: 9, name: "Family", icon: "👨‍👩‍👧‍👦" },
+  { id: 10, name: "Music", icon: "🎵" },
+  { id: 11, name: "TV Series", icon: "📺" },
+  { id: 12, name: "Classic", icon: "🎬" }
 ];
 
-export const trendingMovies = movies.slice(0, 11);
-export const recommendedMovies = movies.slice(2, 12);
+export const trendingMovies = movies.slice(0, 14);
+export const recommendedMovies = movies.slice(2, 15);
 export const popularMovies = [...movies].reverse();

@@ -14,6 +14,27 @@ const HeroSlider = ({ movies }) => {
 
   const currentMovie = movies[currentIndex];
 
+  const handleWatchNow = () => {
+    if (currentMovie.trailer) {
+      window.open(currentMovie.trailer, '_blank', 'noopener,noreferrer');
+    } else {
+      window.location.href = `/movie/${currentMovie.id}`;
+    }
+  };
+
+  const handleDownload = () => {
+    const fileContent = `Download placeholder for ${currentMovie.title}`;
+    const blob = new Blob([fileContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${currentMovie.title.replace(/\s+/g, '_')}_download.txt`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="relative h-[80vh] w-full overflow-hidden">
       <AnimatePresence mode="wait">
@@ -70,11 +91,19 @@ const HeroSlider = ({ movies }) => {
               transition={{ delay: 0.9 }}
               className="flex space-x-4"
             >
-              <button className="btn-primary flex items-center space-x-2">
+              <button
+                type="button"
+                onClick={handleWatchNow}
+                className="btn-primary flex items-center space-x-2"
+              >
                 <FaPlay />
                 <span>Watch Now</span>
               </button>
-              <button className="btn-secondary flex items-center space-x-2">
+              <button
+                type="button"
+                onClick={handleDownload}
+                className="btn-secondary flex items-center space-x-2"
+              >
                 <FaDownload />
                 <span>Download</span>
               </button>

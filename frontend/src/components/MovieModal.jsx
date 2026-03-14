@@ -3,6 +3,27 @@ import { FaTimes, FaPlay, FaDownload, FaStar } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MovieModal = ({ movie, onClose }) => {
+  const handleWatchNow = () => {
+    if (movie.trailer) {
+      window.open(movie.trailer, '_blank', 'noopener,noreferrer');
+    } else {
+      window.alert('Trailer not available yet.');
+    }
+  };
+
+  const handleDownload = () => {
+    const fileContent = `Download placeholder for ${movie.title}`;
+    const blob = new Blob([fileContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${movie.title.replace(/\s+/g, '_')}_download.txt`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <AnimatePresence>
       <motion.div
@@ -48,11 +69,19 @@ const MovieModal = ({ movie, onClose }) => {
             </div>
 
             <div className="flex space-x-4 mb-6">
-              <button className="btn-primary flex items-center space-x-2">
+              <button
+                type="button"
+                onClick={handleWatchNow}
+                className="btn-primary flex items-center space-x-2"
+              >
                 <FaPlay />
                 <span>Watch Now</span>
               </button>
-              <button className="btn-secondary flex items-center space-x-2">
+              <button
+                type="button"
+                onClick={handleDownload}
+                className="btn-secondary flex items-center space-x-2"
+              >
                 <FaDownload />
                 <span>Download</span>
               </button>

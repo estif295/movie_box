@@ -59,14 +59,24 @@ const Navbar = () => {
               <FaSearch className="absolute left-3 top-3 text-gray-400" />
             </form>
             
-            <button className="relative">
+            <button
+              type="button"
+              onClick={() => navigate('/notifications')}
+              className="relative"
+              aria-label="View notifications"
+            >
               <FaBell className="text-2xl hover:text-gray-300 transition-colors" />
               <span className="absolute -top-1 -right-1 bg-netflix-red text-xs rounded-full w-4 h-4 flex items-center justify-center">
                 3
               </span>
             </button>
-            
-            <button className="flex items-center space-x-2 hover:text-gray-300 transition-colors">
+
+            <button
+              type="button"
+              onClick={() => navigate('/profile')}
+              className="flex items-center space-x-2 hover:text-gray-300 transition-colors"
+              aria-label="View profile"
+            >
               <FaUser className="text-2xl" />
               <span className="hidden md:inline">Profile</span>
             </button>

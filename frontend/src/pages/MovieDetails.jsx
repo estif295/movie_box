@@ -8,6 +8,27 @@ const MovieDetails = () => {
   const { id } = useParams();
   const movie = movies.find(m => m.id === parseInt(id));
   
+  const handleWatchNow = () => {
+    if (movie.trailer) {
+      window.open(movie.trailer, '_blank', 'noopener,noreferrer');
+    } else {
+      window.alert('Trailer not available yet.');
+    }
+  };
+
+  const handleDownload = () => {
+    const fileContent = `Download placeholder for ${movie.title}`;
+    const blob = new Blob([fileContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${movie.title.replace(/\s+/g, '_')}_download.txt`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+  };
+  
   if (!movie) {
     return <div>Movie not found</div>;
   }
@@ -51,11 +72,19 @@ const MovieDetails = () => {
             <p className="text-gray-300 text-lg mb-6">{movie.description}</p>
             
             <div className="flex space-x-4 mb-8">
-              <button className="btn-primary flex items-center space-x-2">
+              <button
+                type="button"
+                onClick={handleWatchNow}
+                className="btn-primary flex items-center space-x-2"
+              >
                 <FaPlay />
                 <span>Watch Now</span>
               </button>
-              <button className="btn-secondary flex items-center space-x-2">
+              <button
+                type="button"
+                onClick={handleDownload}
+                className="btn-secondary flex items-center space-x-2"
+              >
                 <FaDownload />
                 <span>Download</span>
               </button>

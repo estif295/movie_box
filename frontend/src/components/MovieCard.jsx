@@ -1,11 +1,39 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaPlay, FaDownload, FaStar } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 // no modal – navigate to detail page instead
 
 const MovieCard = ({ movie }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
+
+  const handleWatchNow = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (movie.trailer) {
+      window.open(movie.trailer, '_blank', 'noopener,noreferrer');
+    } else {
+      navigate(`/movie/${movie.id}`);
+    }
+  };
+
+  const handleDownload = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const fileContent = `Download placeholder for ${movie.title}`;
+    const blob = new Blob([fileContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${movie.title.replace(/\s+/g, '_')}_download.txt`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <Link to={`/movie/${movie.id}`}> 
@@ -46,10 +74,18 @@ const MovieCard = ({ movie }) => {
             </div>
             
             <div className="flex space-x-2">
-              <button className="bg-netflix-red hover:bg-red-700 text-white p-2 rounded-full transition-colors">
+              <button
+                type="button"
+                onClick={handleWatchNow}
+                className="bg-netflix-red hover:bg-red-700 text-white p-2 rounded-full transition-colors"
+              >
                 <FaPlay size={12} />
               </button>
-              <button className="bg-gray-600 hover:bg-gray-700 text-white p-2 rounded-full transition-colors">
+              <button
+                type="button"
+                onClick={handleDownload}
+                className="bg-gray-600 hover:bg-gray-700 text-white p-2 rounded-full transition-colors"
+              >
                 <FaDownload size={12} />
               </button>
             </div>

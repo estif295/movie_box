@@ -8,6 +8,8 @@ import Categories from './pages/Categories';
 import MovieDetails from './pages/MovieDetails';
 import SearchResults from './pages/SearchResults';
 import ImageGallery from './pages/ImageGallery';
+import Profile from './pages/Profile';
+import Notifications from './pages/Notifications';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <Route path="/movie/:id" element={<MovieDetails />} />
             <Route path="/search" element={<SearchResults />} />
             <Route path="/gallery" element={<ImageGallery />} />
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </main>
         <Footer />
