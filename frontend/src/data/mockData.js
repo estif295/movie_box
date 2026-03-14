@@ -198,18 +198,18 @@ export const movies = [
 ;
 
 export const categories = [
-  { id: 1, name: "Action", icon: "🔥" },
-  { id: 2, name: "Comedy", icon: "😂" },
-  { id: 3, name: "Drama", icon: "🎭" },
-  { id: 4, name: "Sci-Fi", icon: "🚀" },
-  { id: 5, name: "Horror", icon: "👻" },
-  { id: 6, name: "Romance", icon: "❤️" },
-  { id: 7, name: "Documentary", icon: "📽️" },
-  { id: 8, name: "Thriller", icon: "🔪" },
-  { id: 9, name: "Family", icon: "👨‍👩‍👧‍👦" },
-  { id: 10, name: "Music", icon: "🎵" },
+  { id: 1, name: "Action Film", icon: "🔥" },
+  { id: 2, name: "Comedy Film", icon: "😂" },
+  { id: 3, name: "Drama Film", icon: "🎭" },
+  { id: 4, name: "Sci-Fi Film", icon: "🚀" },
+  { id: 5, name: "Horror Film", icon: "👻" },
+  { id: 6, name: "Romance Film", icon: "❤️" },
+  { id: 7, name: "Documentary Film", icon: "📽️" },
+  { id: 8, name: "Thriller Film", icon: "🔪" },
+  { id: 9, name: "Family Film", icon: "👨‍👩‍👧‍👦" },
+  { id: 10, name: "Music Film", icon: "🎵" },
   { id: 11, name: "TV Series", icon: "📺" },
-  { id: 12, name: "Classic", icon: "🎬" }
+  { id: 12, name: "Classic Film", icon: "🎬" }
 ];
 
 export const trendingMovies = movies.slice(0, 14);

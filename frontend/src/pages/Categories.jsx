@@ -27,20 +27,20 @@ const Categories = () => {
 
   // Extended categories with available icons
   const allCategories = [
-    { id: 1, name: 'Action', icon: FaFire, color: 'from-orange-500 to-red-600', count: 45, description: 'High-octane thrills and excitement' },
-    { id: 2, name: 'Comedy', icon: FaLaugh, color: 'from-yellow-400 to-yellow-600', count: 62, description: 'Laugh-out-loud moments' },
-    { id: 3, name: 'Drama', icon: FaTheaterMasks, color: 'from-purple-500 to-purple-700', count: 78, description: 'Compelling stories and emotions' },
-    { id: 4, name: 'Sci-Fi', icon: FaRocket, color: 'from-blue-400 to-indigo-600', count: 34, description: 'Explore futuristic worlds' },
-    { id: 5, name: 'Horror', icon: FaGhost, color: 'from-gray-700 to-gray-900', count: 28, description: 'Heart-pounding terror' },
-    { id: 6, name: 'Romance', icon: FaHeart, color: 'from-pink-400 to-pink-600', count: 41, description: 'Love stories that touch the heart' },
-    { id: 7, name: 'Documentary', icon: FaFilm, color: 'from-green-500 to-green-700', count: 23, description: 'Real stories, real impact' },
-    { id: 8, name: 'Thriller', icon: FaSkull, color: 'from-red-700 to-red-900', count: 37, description: 'Edge-of-your-seat suspense' },
-    { id: 9, name: 'Family', icon: FaBaby, color: 'from-teal-400 to-teal-600', count: 52, description: 'Fun for all ages' },
-    { id: 10, name: 'Music', icon: FaMusic, color: 'from-indigo-400 to-indigo-600', count: 19, description: 'Movies that move you' },
-    { id: 11, name: 'History', icon: FaHistory, color: 'from-amber-600 to-amber-800', count: 16, description: 'Epic tales from the past' },
-    { id: 12, name: 'Award Winners', icon: FaStar, color: 'from-yellow-500 to-yellow-700', count: 31, description: 'Critically acclaimed masterpieces' },
+    { id: 1, name: 'Action Film', icon: FaFire, color: 'from-orange-500 to-red-600', count: 45, description: 'High-octane thrills and excitement' },
+    { id: 2, name: 'Comedy Film', icon: FaLaugh, color: 'from-yellow-400 to-yellow-600', count: 62, description: 'Laugh-out-loud moments' },
+    { id: 3, name: 'Drama Film', icon: FaTheaterMasks, color: 'from-purple-500 to-purple-700', count: 78, description: 'Compelling stories and emotions' },
+    { id: 4, name: 'Sci-Fi Film', icon: FaRocket, color: 'from-blue-400 to-indigo-600', count: 34, description: 'Explore futuristic worlds' },
+    { id: 5, name: 'Horror Film', icon: FaGhost, color: 'from-gray-700 to-gray-900', count: 28, description: 'Heart-pounding terror' },
+    { id: 6, name: 'Romance Film', icon: FaHeart, color: 'from-pink-400 to-pink-600', count: 41, description: 'Love stories that touch the heart' },
+    { id: 7, name: 'Documentary Film', icon: FaFilm, color: 'from-green-500 to-green-700', count: 23, description: 'Real stories, real impact' },
+    { id: 8, name: 'Thriller Film', icon: FaSkull, color: 'from-red-700 to-red-900', count: 37, description: 'Edge-of-your-seat suspense' },
+    { id: 9, name: 'Family Film', icon: FaBaby, color: 'from-teal-400 to-teal-600', count: 52, description: 'Fun for all ages' },
+    { id: 10, name: 'Music Film', icon: FaMusic, color: 'from-indigo-400 to-indigo-600', count: 19, description: 'Movies that move you' },
+    { id: 11, name: 'History Film', icon: FaHistory, color: 'from-amber-600 to-amber-800', count: 16, description: 'Epic tales from the past' },
+    { id: 12, name: 'Award Winners Film', icon: FaStar, color: 'from-yellow-500 to-yellow-700', count: 31, description: 'Critically acclaimed masterpieces' },
     { id: 13, name: 'TV Series', icon: FaTv, color: 'from-blue-600 to-blue-800', count: 44, description: 'Binge-worthy shows' },
-    { id: 14, name: 'Classics', icon: FaVideo, color: 'from-gray-600 to-gray-800', count: 27, description: 'Timeless cinema' },
+    { id: 14, name: 'Classic Film', icon: FaVideo, color: 'from-gray-600 to-gray-800', count: 27, description: 'Timeless cinema' },
   ];
 
   // Filter movies based on selected category
@@ -48,8 +48,10 @@ const Categories = () => {
     if (selectedCategory === 'all') {
       return movies;
     }
+    // Remove "Film" from category name for genre matching
+    const genreToMatch = selectedCategory.replace(' Film', '').toLowerCase();
     return movies.filter(movie => 
-      movie.genre.some(g => g.toLowerCase() === selectedCategory.toLowerCase())
+      movie.genre.some(g => g.toLowerCase() === genreToMatch)
     );
   };
 
